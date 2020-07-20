@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>VNPOST</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/nivo-slider.css" />
+    <script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div id="header-container">
+        <!-- BEGIN HEADER -->
+            <div class="header">
+
+                <div class="header-left">
+                    <a th:href="@{'/'}">
+                        <img src="img/logo.jpg" />
+                    </a>
+                </div>
+
+                <div class="header-right">
+                    <!-- BEGIN HEADER TOP LINKS -->
+                    <div class="top-links">
+                        <ul>
+                            <li><a href="#">Trang chủ</a>|</li>
+                            <li><a href="#">Giới thiệu</a>|</li>
+                            <li><a href="#">Sitemap</a>|</li>
+                            <li><a href="#" class="top-links-user">Đăng nhập</a>|</li>
+                            <li>Ngôn ngữ</li>
+                            <li><a href="#" class="top-links-language">VN</a>|</li>
+                            <li><a href="#" class="top-links-language">EN</a></li>
+                        </ul>
+                    </div>
+                    <!-- END HEADER TOP LINKS -->
+
+                    <div class="clear"></div>
+
+                    <!--BEGIN FORM TOP SEARCH -->
+                    <div class="top-search">
+                        <form action="" method="post">
+                            <input type="text" id="txtTopSearch"/>
+                            <button type="submit" id="btnTopSearch">Tìm</button>
+                        </form>
+                    </div>
+                    <!--END FORM TOP SEARCH -->
+
+                    <div class="clear"></div>
+
+                    <div class="top-follow-widget">
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <!-- BEGIN HEADER NAV BAR -->
+                <div class="header-main-menu">
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#" class="nav-a-tag-active">Tin tức</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Mạng lưới</a></li>
+                        <li><a href="#">Văn bản</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Nội bộ</a></li>
+                    </ul>
+                </div>
+                <!-- END HEADER NAV BAR -->
+
+                <div class="clear"></div>
+            </div>
+            <!-- END HEADER -->
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- BEGIN CENTER CONTENT -->
+        <div class="content-area">
+
+            <!-- BEGEN LEFT CONTENT AREA -->
+            <div class="content-left-area">
+                <div class="content-left-block">
+                    <div class="left-menu-block">
+                        <h2>Tin tức mới nhất</h2>
+                        <ul>
+                            <li class="LiLeftActive"><a href="#" class="ArrowLeft">Home</a></li>
+                            <li th:each="categItem : ${listCateg}"><a th:href="@{${'/category/' + categItem.id}}"
+								class="ArrowLeft" th:utext="${categItem.name}">..</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END LEFT CONTENT AREA -->
+
+            <!-- BEGIN MAIN CENTER CONTENT AREA -->
+            <div class="main-content">
+                <div class="index-highlights-block">
+                    <div class="nv-slider-block">
+                        <div id="slider-wrapper">
+                            <div id="slider" class="nivoSlider">
+                                <div>
+                                    <img src="img/01.jpg" />
+                                    <div class="content-json-hidden">{"title":"Tổ chức dâng hiệu, truy điệu, an táng hài cốt Liệt sỹ Ngành Bưu điện và khánh thành nhà Truyền thống Ban Giao bưu vận và Ban Thông tin liên lạc Trung ương Cục miền Nam","intro":"Ngày 18/01/2014, tại Nghĩa trang liệt sỹ Giao bưu - Thông tin R, tỉnh Tây Ninh đã diễn ra lễ dâng hương, truy điệu, an táng hài cốt của 3 liệt sỹ thuộc ngành Bưu điện anh dũng hy sinh trong các cuộc...","url":"http://url1.com.vn"}</div>
+                                </div>
+                                <div>
+                                    <img src="img/02.jpg" />
+                                    <div class="content-json-hidden">{"title":"Bưu điện tỉnh Hà Nam: năng suất lao động tăng 20% trong năm 2013","intro":"Ngày 13/01/2014, Bưu điện tỉnh Hà Nam tổ chức Hội nghị Tổng kết công tác năm 2013 và triển khai kế hoạch năm 2014. Ông Phạm Sỹ Lợi - Phó Chủ tịch UBND tỉnh Hà Nam; bà Đinh Thị Yến - Bí thư Đảng ủy...","url":"http://url2.com.vn"}</div>
+                                </div>
+                                <div>
+                                    <img src="img/03.jpg" />
+                                    <div class="content-json-hidden">{"title":"Bưu điện tỉnh Lai Châu: phấn đấu tăng trưởng 17% trong năm 2014","intro":"Ngày 14/1/2013, Bưu điện tỉnh Lai Châu đã tổ chức hội nghị tổng kết công tác năm 2013 và triển khai nhiệm vụ năm 2014.","url":"http://url3.com.vn"}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="news-slided-content">
+                            <p id="news-slided-content-title">
+                                <a href=""></a>
+                            </p>
+                            <p id="news-slided-content-content">
+
+                            </p>
+                         </div>
+                    </div>
+                    <div class="index-highlights-right">
+
+                        <div class="index-top-list">
+                            <ul>
+                                <li><a href="#">Thủ tướng Chính phủ chỉ đạo đôn đốc thực hiện nhiệm vụ chuẩn bị đón Tết Nguyên đán Giáp Ngọ 2014</a></li>
+                                <li><a href="#">Bưu điện Việt Nam: Triển khai phương án kinh doanh và phục vụ trong dịp Tết Nguyên đán Giáp Ngọ 2014</a></li>
+                                <li><a href="#">Bưu điện tỉnh Hà Nam: năng suất lao động tăng 20% trong năm 2013</a></li>
+                                <li><a href="#">Tổ chức dâng hiệu, truy điệu, an táng hài cốt Liệt sỹ Ngành Bưu điện và khánh thành nhà Truyền thống Ban Giao bưu vận...</a></li>
+                                <li><a href="#">Bưu điện tỉnh Lai Châu: phấn đấu tăng trưởng 17% trong năm 2014</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="index-other-list">
+                            <ul>
+                                <li>
+                                    <div>
+                                        <a href="#">
+                                            <img src="img/04.jpg">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#">
+                                            Chỉ thị của Bộ trưởng Bộ TT&TT về tổ chức đón Tết Nguyên đán Giáp Ngọ năm 2014
+                                        </a>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <a href="#">
+                                            <img src="img/05.jpg">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#">
+                                            Bưu điện tỉnh Vĩnh Long tổ chức Hội nghị triển khai kế hoạch và hội nghị người lao động năm 2014
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+
+                <div class="index-category-item-news">
+                    <div class="ictn-header"><a href="#">Tin hoạt động SXKD</a></div>
+                    <div class="clear"></div>
+                    <div class="ictn-content">
+                        <div class="ictn-content-main">
+                            <div class="ictn-content-main-img">
+                                <a href="#">
+                                    <img src="img/06.jpg">
+                                </a>
+                            </div>
+                            <div class="ictn-content-main-title">
+                                <a href="#">
+                                    Bưu điện tỉnh Lai Châu: phấn đấu tăng trưởng 17% trong năm 2014
+                                </a>
+                            </div>
+                            <div class="ictn-datepost">
+                                21/01/2014 8:44:09 SA
+                            </div>
+                            Ngày 14/1/2013, Bưu điện tỉnh Lai Châu đã tổ chức hội nghị tổng kết công tác năm 2013 và triển khai nhiệm vụ năm 2014...<a href="#">Read more</a>
+                        </div>
+
+                        <div class="ictn-list-sub">
+                            <ul>
+                                <li><a href="#">Bưu điện tỉnh Hà Nam: năng suất lao động tăng 20% trong năm 2013</a></li>
+                                <li><a href="#">Tổ chức dâng hiệu, truy điệu, an táng hài cốt Liệt sỹ Ngành Bưu điện và khánh thành nhà Truyền thống Ban Giao bưu vận và Ban Thông tin liên lạc Trung ương Cục miền Nam</a></li>
+                                <li><a href="#">Bưu điện Việt Nam: Triển khai phương án kinh doanh và phục vụ trong dịp Tết Nguyên đán Giáp Ngọ 2014</a></li>
+                                <li><a href="#">Bưu điện tỉnh Vĩnh Long tổ chức Hội nghị triển khai kế hoạch và hội nghị người lao động năm 2014</a></li>
+                                <li><a href="#">Bưu điện tỉnh Kon Tum và những mục tiêu lớn của năm kế hoạch 2014</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="index-category-item-news">
+                    <div class="ictn-header"><a href="#">Bưu chính quốc tế</a></div>
+                    <div class="clear"></div>
+                    <div class="ictn-content">
+                        <div class="ictn-content-main">
+                            <div class="ictn-content-main-img">
+                                <a href="#">
+                                    <img src="img/07.jpg">
+                                </a>
+                            </div>
+                            <div class="ictn-content-main-title">
+                                <a href="#">
+                                    Cuộc họp cấp cao giữa Bưu điện Việt Nam và Bưu chính Thái Lan
+                                </a>
+                            </div>
+                            <div class="ictn-datepost">
+                                31/12/2013 2:06:49 CH
+                            </div>
+                            Trong các ngày 22-24/2013, đoàn cấp cao Bưu chính Thái Lan do bà Anusra Chittmittrapap – Tổng Giám đốc Bưu chính Thái Lan đã thăm và làm...<a href="#">Read more</a>
+                        </div>
+
+                        <div class="ictn-list-sub">
+                            <ul>
+                                <li><a href="#">Vietnam Post tham dự Hội thảo quốc tế về an ninh vận chuyển hàng không và dịch vụ chuyển tiền điện tử</a></li>
+                                <li><a href="#">Bưu chính Nga sắp cung cấp dịch vụ ngân hàng</a></li>
+                                <li><a href="#">Xe tải điện của Bưu chính Đức được chạy trên đường</a></li>
+                                <li><a href="#">USPS cho phép doanh nghiệp in hình quảng cáo lên thư</a></li>
+                                <li><a href="#">Bưu chính Mỹ thử nghiệm "trả hàng xuyên biên giới"</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="index-category-item-news">
+                    <div class="ictn-header"><a href="#">Hoạt động cộng đồng</a></div>
+                    <div class="clear"></div>
+                    <div class="ictn-content">
+                        <div class="ictn-content-main">
+                            <div class="ictn-content-main-img">
+                                <a href="#">
+                                    <img src="img/08.jpg">
+                                </a>
+                            </div>
+                            <div class="ictn-content-main-title">
+                                <a href="#">
+                                    Bưu điện tỉnh Quảng Ninh thiệt hại hơn 1,5 tỷ đồng sau bão Hải Yến
+                                </a>
+                            </div>
+                            <div class="ictn-datepost">
+                                15/11/2013 8:17:42 SA
+                            </div>
+                            Cơn bão số 14 (Haiyan) có cường độ mạnh và di chuyển phức tạp, hướng di chuyển thay đổi liên tục đã đổ bộ vào tỉnh Quảng Ninh. Tất cả các huyện, thị xã, thành phố...<a href="#">Read more</a>
+                        </div>
+
+                        <div class="ictn-list-sub">
+                            <ul>
+                                <li><a href="#">Bưu điện huyện Lý Sơn (Quảng Ngãi) thiệt hại nặng nề sau thiên tai</a></li>
+                                <li><a href="#">Bưu điện Việt Nam hưởng ứng “Ngày vì người nghèo”</a></li>
+                                <li><a href="#">Bưu điện tỉnh Lâm Đồng tổ chức Hội thi “Nghiệp vụ giỏi – Kinh doanh giỏi”</a></li>
+                                <li><a href="#">Bưu điện tỉnh Hòa Bình là doanh nghiệp tiêu biểu của tỉnh giai đoạn 2011-2013</a></li>
+                                <li><a href="#">Đại tướng Võ Nguyên Giáp tá túc tại Nha Bưu điện Việt Nam</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="clear"></div>
+            </div>
+            <!-- END MAIN CENTER CONTENT AREA -->
+
+            <div class="clear"></div>
+
+            <div class="bottom-ads-images">
+                <div class="bai-inner">
+                    <a href="#"><img src="img/ads1.png"></a>
+                    <a href="#"><img src="img/ads2.png"></a>
+                    <a href="#"><img src="img/ads3.png"></a>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <!-- BEGIN CENTER BOTTOM -->
+            <div class="main-content-bottom">
+                <div class="mcb-column">
+                    <h3>Bưu chính chuyển phát</h3>
+                    <ul>
+                        <li><a href="#">Chuyển phát CMTND</a></li>
+                        <li><a href="#">EMS</a></li>
+                        <li><a href="#">VNQuickpost</a></li>
+                        <li><a href="#">Bưu phẩm</a></li>
+                        <li><a href="#">Khai giá</a></li>
+                    </ul>
+                </div>
+
+                <div class="mcb-column">
+                    <h3>Tài chính bưu chính</h3>
+                    <ul>
+                        <li><a href="#">Dịch vụ Chuyển tiền nhanh PayPost</a></li>
+                        <li><a href="#">Đại lý Bảo hiểm</a></li>
+                        <li><a href="#">Phân phối bán lẻ</a></li>
+                        <li><a href="#">Chuyển tiền Bưu điện</a></li>
+                        <li><a href="#">Thu hộ, chi hộ</a></li>
+                    </ul>
+                </div>
+
+                <div class="mcb-column">
+                    <h3>Viễn thông - CNTT</h3>
+                    <ul>
+                        <li><a href="#">Truyền thông</a></li>
+                        <li><a href="#">Thẻ trường trực tuyến</a></li>
+                        <li><a href="#">Thẻ di động trả trước</a></li>
+                        <li><a href="#">Thẻ học ngoại ngữ Online</a></li>
+                        <li><a href="#">Bộ hòa mạng ALO của Vinaphone</a></li>
+                    </ul>
+                </div>
+
+                <div class="mcb-column">
+                    <h3>Các dịch vụ khác</h3>
+                    <ul>
+                        <li><a href="#">Du lịch lữ hành</a></li>
+                        <li><a href="#">Đại lý vé xe Hoàng Long</a></li>
+                        <li><a href="#">AVG - Truyền hình An Viên</a></li>
+                        <li><a href="#">Chuyển phát hồ sơ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END CENTER BOTTOM -->
+
+
+        </div>
+        <!-- END CENTER CONTENT -->
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3>&copy; 2008 Tổng công ty bưu điện việt nam - VIETNAM POST</h3>
+                <p>
+                    Địa chỉ: Số 05 đường Phạm Hùng - Mỹ Đình - Từ Liêm - Hà Nội - Việt Nam
+                </p>
+                <p>
+                    Email: vanphong@vnpost.vn - Ghi rõ nguồn "vnpost.vn" khi phát hành lại thông tin từ website này
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            var startJson = $("#slider div:nth-child(1) .content-json-hidden").text();
+            startJson = JSON.parse(startJson);
+            $("#news-slided-content-title a:nth-child(1)").attr('href',startJson.url).html(startJson.title);
+            $("#news-slided-content-content").html(startJson.intro);
+            $('#slider').nivoSlider({
+                afterChange: function(){
+                    var jsonString = $($('#slider').data("nivo:vars").currentImage.parent("div").children(".content-json-hidden")[0]).text();
+                    jsonString = JSON.parse(jsonString);
+                    $("#news-slided-content-title a:nth-child(1)").attr('href',jsonString.url).html(jsonString.title);
+                    $("#news-slided-content-content").html(jsonString.intro);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

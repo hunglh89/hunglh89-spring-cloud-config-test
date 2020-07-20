@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>VNPOST</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+
+        <div id="header-container">
+        <!-- BEGIN HEADER -->
+            <div class="header">
+
+                <div class="header-left">
+                    <a th:href="@{'/'}">
+                        <img th:src="@{/img/logo.jpg}" />
+                    </a>
+                </div>
+
+                <div class="header-right">
+                    <!-- BEGIN HEADER TOP LINKS -->
+                    <div class="top-links">
+                        <ul>
+                            <li><a href="#">Trang chủ</a>|</li>
+                            <li><a href="#">Giới thiệu</a>|</li>
+                            <li><a href="#">Sitemap</a>|</li>
+                            <li><a href="#" class="top-links-user">Đăng nhập</a>|</li>
+                            <li>Ngôn ngữ</li>
+                            <li><a href="#" class="top-links-language">VN</a>|</li>
+                            <li><a href="#" class="top-links-language">EN</a></li>
+                        </ul>
+                    </div>
+                    <!-- END HEADER TOP LINKS -->
+
+                    <div class="clear"></div>
+
+                    <!--BEGIN FORM TOP SEARCH -->
+                    <div class="top-search">
+                        <form action="" method="post">
+                            <input type="text" id="txtTopSearch"/>
+                            <button type="submit" id="btnTopSearch">Tìm</button>
+                        </form>
+                    </div>
+                    <!--END FORM TOP SEARCH -->
+
+                    <div class="clear"></div>
+
+                    <div class="top-follow-widget">
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <!-- BEGIN HEADER NAV BAR -->
+                <div class="header-main-menu">
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#" class="nav-a-tag-active">Tin tức</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Mạng lưới</a></li>
+                        <li><a href="#">Văn bản</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Nội bộ</a></li>
+                    </ul>
+                </div>
+                <!-- END HEADER NAV BAR -->
+
+                <div class="clear"></div>
+            </div>
+            <!-- END HEADER -->
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- BEGIN CENTER CONTENT -->
+        <div class="content-area">
+
+            <!-- BEGEN LEFT CONTENT AREA -->
+            <div class="content-left-area">
+                <div class="content-left-block">
+                    <div class="left-menu-block">
+                        <h2>Tin tức mới nhất</h2>
+                        <ul>
+                            <li class="LiLeftActive"><a href="#" class="ArrowLeft">Home</a></li>
+                            <li th:each="categItem : ${listCateg}"><a th:href="@{${'/category/' + categItem.id}}"
+								class="ArrowLeft" th:utext="${categItem.name}">..</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END LEFT CONTENT AREA -->
+
+            <!-- BEGIN MAIN CENTER CONTENT AREA -->
+            <div class="main-content">
+
+                <div class="flash-banner">
+                    <object width="400" height="40"
+                            classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,28;">
+                        <param name="SRC" value="banner_vnpost(660-254)_26.swf">
+                        <embed src="swf/banner_vnpost(660-254)_26.swf" width="660" height="255">
+                        </embed>
+                    </object>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="inside-breadcrumbs">
+                    <span class="ibs-inactive"><a href="#">Trang chủ</a></span>&nbsp;>&nbsp;
+                    <span class="ibs-inactive"><a href="#">Tin tức</a></span>&nbsp;>&nbsp;
+                    <span class="ibs-active"><a href="#">Bưu chính quốc tế</a></span>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="cate-new-items"  th:each="postItem : ${listPost}">
+                    <div class="cni-thumb">
+                        <a th:href="@{${'/article/' + postItem.id}}"><img th:src="@{${'/uploads/images/img150x100/' + postItem.image}}"></a>
+                    </div>
+                    <div class="cni-details">
+                        <div class="cni-details-title">
+                            <a th:href="@{${'/article/' + postItem.id}}" th:utext="${postItem.title}">..</a>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="cni-details-intro" th:utext="${postItem.intro}">..</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- END MAIN CENTER CONTENT AREA -->
+
+            <div class="clear"></div>
+
+            <div class="bottom-ads-images">
+                <div class="bai-inner">
+                    <a href="#"><img th:src="@{/img/ads1.png}"></a>
+                    <a href="#"><img th:src="@{/img/ads2.png}"></a>
+                    <a href="#"><img th:src="@{/img/ads3.png}"></a>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <!-- BEGIN CENTER BOTTOM -->
+            <div class="main-content-bottom">
+                <div class="mcb-column">
+                    <h3>Bưu chính chuyển phát</h3>
+                    <ul>
+                        <li><a href="#">Chuyển phát CMTND</a></li>
+                        <li><a href="#">EMS</a></li>
+                        <li><a href="#">VNQuickpost</a></li>
+                        <li><a href="#">Bưu phẩm</a></li>
+                        <li><a href="#">Khai giá</a></li>
+                    </ul>
+                </div>
+
+                <div class="mcb-column">
+                    <h3>Tài chính bưu chính</h3>
+                    <ul>
+                        <li><a href="#">Dịch vụ Chuyển tiền nhanh PayPost</a></li>
+                        <li><a href="#">Đại lý Bảo hiểm</a></li>
+                        <li><a href="#">Phân phối bán lẻ</a></li>
+                        <li><a href="#">Chuyển tiền Bưu điện</a></li>
+                        <li><a href="#">Thu hộ, chi hộ</a></li>
+                    </ul>
+                </div>
+
+                <div class="mcb-column">
+                    <h3>Viễn thông - CNTT</h3>
+                    <ul>
+                        <li><a href="#">Truyền thông</a></li>
+                        <li><a href="#">Thẻ trường trực tuyến</a></li>
+                        <li><a href="#">Thẻ di động trả trước</a></li>
+                        <li><a href="#">Thẻ học ngoại ngữ Online</a></li>
+                        <li><a href="#">Bộ hòa mạng ALO của Vinaphone</a></li>
+                    </ul>
+                </div>
+
+                <div class="mcb-column">
+                    <h3>Các dịch vụ khác</h3>
+                    <ul>
+                        <li><a href="#">Du lịch lữ hành</a></li>
+                        <li><a href="#">Đại lý vé xe Hoàng Long</a></li>
+                        <li><a href="#">AVG - Truyền hình An Viên</a></li>
+                        <li><a href="#">Chuyển phát hồ sơ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END CENTER BOTTOM -->
+
+
+        </div>
+        <!-- END CENTER CONTENT -->
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3>&copy; 2008 Tổng công ty bưu điện việt nam - VIETNAM POST</h3>
+                <p>
+                    Địa chỉ: Số 05 đường Phạm Hùng - Mỹ Đình - Từ Liêm - Hà Nội - Việt Nam
+                </p>
+                <p>
+                    Email: vanphong@vnpost.vn - Ghi rõ nguồn "vnpost.vn" khi phát hành lại thông tin từ website này
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
